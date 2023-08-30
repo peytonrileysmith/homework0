@@ -1,0 +1,42 @@
+---
+title: "Homework 0"
+author: "Peyton Smith"
+date: August 29, 2023
+format: pdf
+editor: visual
+---
+# Roots of a Quadratic Equation
+These are the real solutions to the equation $f(x) = ax^2+bx+c=0$  for  $a=1, b=3, c=2$.
+```{r}
+#| echo: false
+a <- 1
+b <- 3
+c <- 2
+D <- b^2 - 4*a*c
+
+if(D>0){
+SQ1 <- (-b - sqrt(b^2 - (4*a*c))) / (2*a)
+SQ2 <- (-b + sqrt(b^2 - (4*a*c))) / (2*a)
+sprintf("The solutions are %d and %d.", SQ1, SQ2)
+} else if(D==0){
+SQ1 <- (-b + sqrt(b^2 - (4*a*c))) / (2*a)
+sprintf("The solution is %d.", SQ1)
+} else {
+print("There are no solutions.")
+}
+```
+# Graph of Quadratic Equation
+This graph plots the equation $f(x)$ from above versus $x$ for $x \in (-5,5)$.
+
+```{r}
+#| echo: false
+a <- 1 
+b <- 3
+c <- 2
+x <- seq(-5, 5, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h = 0, lty = 2)
+```
+
+
+
